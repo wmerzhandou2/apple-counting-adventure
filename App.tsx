@@ -276,15 +276,15 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 p-4 md:p-8 pb-32 font-sans">
+    <div className="min-h-screen bg-slate-50 p-3 sm:p-4 md:p-8 pb-24 sm:pb-32 font-sans">
       {/* Header */}
-      <header className="max-w-4xl mx-auto mb-6 flex justify-between items-center">
-        <h1 className="text-2xl md:text-4xl font-extrabold text-red-600 tracking-tight flex items-center gap-2">
+      <header className="max-w-4xl mx-auto mb-4 sm:mb-6 flex justify-between items-center">
+        <h1 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-red-600 tracking-tight flex items-center gap-1 sm:gap-2">
           <Apple size="lg" /> 数苹果大冒险
         </h1>
         {phase !== AppPhase.INTRO && (
-          <button onClick={reset} className="flex items-center gap-2 text-gray-500 hover:text-red-500 transition-colors font-bold text-sm md:text-base">
-            <RotateCcw size={18} /> <span className="hidden md:inline">重新开始</span>
+          <button onClick={reset} className="flex items-center gap-1 sm:gap-2 text-gray-500 hover:text-red-500 transition-colors font-bold text-xs sm:text-sm md:text-base min-h-[44px] px-2">
+            <RotateCcw size={16} /> <span className="hidden sm:inline">重新开始</span>
           </button>
         )}
       </header>
@@ -295,28 +295,28 @@ export default function App() {
         {/* Intro Phase */}
         {phase === AppPhase.INTRO && (
           <PhaseCard title="奶奶的神秘盒子" color="blue">
-            <div className="flex flex-col items-center gap-6 text-center">
-              <p className="text-xl md:text-2xl text-gray-700">
+            <div className="flex flex-col items-center gap-4 sm:gap-6 text-center">
+              <p className="text-base sm:text-xl md:text-2xl text-gray-700">
                 奶奶寄来了一箱红红的苹果！🍎<br />
                 她给了我们<span className="font-bold text-blue-600">两个线索</span>，让我们不用打开箱子就能算出有多少个苹果。
               </p>
-              <div className="bg-amber-100 p-6 rounded-2xl border-dashed border-4 border-amber-400 w-full max-w-md shadow-sm">
-                <ul className="text-left space-y-4 text-lg font-medium text-amber-900">
-                  <li className="flex items-center gap-3">
-                    <span className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold">1</span>
+              <div className="bg-amber-100 p-4 sm:p-6 rounded-2xl border-dashed border-4 border-amber-400 w-full max-w-md shadow-sm">
+                <ul className="text-left space-y-3 sm:space-y-4 text-base sm:text-lg font-medium text-amber-900">
+                  <li className="flex items-center gap-2 sm:gap-3">
+                    <span className="bg-blue-500 text-white w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm sm:text-base">1</span>
                     每 <b>7</b> 个装一袋，还多 <b>4</b> 个。
                   </li>
-                  <li className="flex items-center gap-3">
-                    <span className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold">2</span>
+                  <li className="flex items-center gap-2 sm:gap-3">
+                    <span className="bg-purple-500 text-white w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm sm:text-base">2</span>
                     每 <b>8</b> 个装一袋，又差 <b>4</b> 个。
                   </li>
                 </ul>
               </div>
               <button
                 onClick={() => setPhase(AppPhase.STEP_7)}
-                className="bg-blue-500 hover:bg-blue-600 text-white text-xl px-8 py-4 rounded-full font-bold shadow-lg transform transition hover:scale-105 flex items-center gap-3"
+                className="bg-blue-500 hover:bg-blue-600 text-white text-base sm:text-xl px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold shadow-lg transform transition hover:scale-105 active:scale-95 flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
               >
-                解开第 1 个线索 <ArrowRight />
+                解开第 1 个线索 <ArrowRight size={20} />
               </button>
             </div>
           </PhaseCard>
@@ -325,49 +325,49 @@ export default function App() {
         {/* Step 7 Phase */}
         {phase === AppPhase.STEP_7 && (
           <PhaseCard title="线索 1：每袋装 7 个" color="green">
-            <div className="space-y-6">
-              <p className="text-center text-lg text-gray-700">
-                “每 7 个装一袋，<span className="font-bold text-red-500">还多 4 个</span>。”
+            <div className="space-y-4 sm:space-y-6">
+              <p className="text-center text-sm sm:text-lg text-gray-700">
+                "每 7 个装一袋，<span className="font-bold text-red-500">还多 4 个</span>。"
                 <br />就是说：把苹果装进袋子里，最后手里还剩 4 个。
               </p>
 
-              <div className="flex flex-col md:flex-row gap-8 items-start">
+              <div className="flex flex-col gap-4 sm:gap-6">
                 {/* Visualizer */}
-                <div className="flex-1 w-full bg-white rounded-xl p-4 shadow-inner min-h-[220px] flex flex-col items-center border border-gray-100">
-                  <div className="flex flex-wrap justify-center items-end gap-2 mb-4">
+                <div className="w-full bg-white rounded-xl p-3 sm:p-4 shadow-inner min-h-[160px] sm:min-h-[220px] flex flex-col items-center border border-gray-100">
+                  <div className="flex flex-wrap justify-center items-end gap-1 sm:gap-2 mb-3 sm:mb-4">
                     {renderVisualBag(bags7, 7)}
                     {/* The remainder */}
-                    <div className="bg-red-50 border-2 border-red-300 rounded-xl p-2 m-1 flex flex-wrap w-16 justify-center shadow-sm">
+                    <div className="bg-red-50 border-2 border-red-300 rounded-xl p-1.5 sm:p-2 m-1 flex flex-wrap w-14 sm:w-16 justify-center shadow-sm">
                       {[1, 2, 3, 4].map(i => <Apple key={i} size="sm" />)}
                       <span className="text-xs font-bold text-red-500 mt-1">剩 4 个</span>
                     </div>
                   </div>
-                  <div className="text-xl md:text-2xl font-bold text-gray-700 mt-auto bg-gray-50 px-4 py-2 rounded-full">
-                    {bags7} 袋 × 7 + 4 = <span className="text-green-600 text-3xl md:text-4xl">{bags7 * 7 + 4}</span>
+                  <div className="text-base sm:text-xl md:text-2xl font-bold text-gray-700 mt-auto bg-gray-50 px-3 sm:px-4 py-2 rounded-full text-center">
+                    {bags7} 袋 × 7 + 4 = <span className="text-green-600 text-xl sm:text-3xl md:text-4xl">{bags7 * 7 + 4}</span>
                   </div>
                 </div>
 
                 {/* Controls & List */}
-                <div className="flex-1 w-full space-y-4">
-                  <div className="flex gap-2 justify-center">
+                <div className="w-full space-y-3 sm:space-y-4">
+                  <div className="flex gap-2 justify-center flex-wrap">
                     <button
                       onClick={addBag7}
-                      className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-bold shadow-md active:scale-95 transition"
+                      className="bg-green-500 hover:bg-green-600 text-white px-5 sm:px-6 py-3 rounded-xl font-bold shadow-md active:scale-95 transition text-sm sm:text-base"
                     >
                       + 加一袋
                     </button>
                     {sequence7.length > 3 && (
-                      <button onClick={autoFill7} className="text-green-600 font-bold hover:underline px-4 bg-green-50 rounded-xl">
+                      <button onClick={autoFill7} className="text-green-600 font-bold hover:underline px-3 sm:px-4 bg-green-50 rounded-xl text-sm sm:text-base">
                         自动填充...
                       </button>
                     )}
                   </div>
 
-                  <div className="bg-gray-100 p-4 rounded-xl shadow-inner">
+                  <div className="bg-gray-100 p-3 sm:p-4 rounded-xl shadow-inner">
                     <h3 className="font-bold text-gray-500 uppercase text-xs mb-2">可能的苹果数量：</h3>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {sequence7.map((num, i) => (
-                        <div key={i} className="bg-white px-3 py-1 rounded-lg shadow-sm text-green-700 font-bold border border-green-200 animate-bounce-slight" style={{ animationDelay: `${i * 0.1}s` }}>
+                        <div key={i} className="bg-white px-2 sm:px-3 py-1 rounded-lg shadow-sm text-green-700 font-bold border border-green-200 text-sm sm:text-base">
                           {num}
                         </div>
                       ))}
@@ -378,9 +378,9 @@ export default function App() {
                     <div className="text-center pt-2">
                       <button
                         onClick={() => setPhase(AppPhase.STEP_8)}
-                        className="bg-gray-800 hover:bg-black text-white px-8 py-3 rounded-full font-bold shadow-lg flex items-center gap-2 mx-auto transform transition hover:scale-105"
+                        className="bg-gray-800 hover:bg-black text-white px-6 sm:px-8 py-3 rounded-full font-bold shadow-lg flex items-center gap-2 mx-auto transform transition hover:scale-105 active:scale-95 w-full sm:w-auto justify-center text-sm sm:text-base"
                       >
-                        好啦，看第 2 个线索 <ArrowRight />
+                        好啦，看第 2 个线索 <ArrowRight size={18} />
                       </button>
                     </div>
                   )}
@@ -541,23 +541,23 @@ export default function App() {
         {/* Compare Phase */}
         {phase === AppPhase.COMPARE && (
           <PhaseCard title="寻找神奇的数字" color="orange">
-            <div className="text-center space-y-6">
-              <p className="text-xl text-gray-700">
+            <div className="text-center space-y-4 sm:space-y-6">
+              <p className="text-base sm:text-xl text-gray-700">
                 正确的苹果数量必须<span className="font-bold text-green-600">同时</span>出现在两个清单里。
                 <br />你能找到它吗？点一点那个数字！
               </p>
 
-              <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-3xl mx-auto">
-                <div className="bg-green-50 p-4 rounded-xl border-2 border-green-200">
-                  <h3 className="text-green-700 font-bold mb-4">线索 1 的数字</h3>
-                  <div className="flex flex-col gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-8 max-w-3xl mx-auto">
+                <div className="bg-green-50 p-3 sm:p-4 rounded-xl border-2 border-green-200">
+                  <h3 className="text-green-700 font-bold mb-3 sm:mb-4 text-sm sm:text-base">线索 1 的数字</h3>
+                  <div className="flex flex-wrap sm:flex-col gap-2 justify-center">
                     {sequence7.map(num => (
                       <button
                         key={`s7-${num}`}
                         onClick={() => checkMatch(num)}
-                        className={`py-2 px-4 rounded-lg font-bold text-lg transition-all ${foundMatch === num
+                        className={`py-2 px-3 sm:px-4 rounded-lg font-bold text-sm sm:text-lg transition-all min-w-[48px] ${foundMatch === num
                           ? 'bg-yellow-400 text-white scale-110 shadow-xl ring-4 ring-yellow-200'
-                          : 'bg-white text-green-700 hover:bg-green-100 shadow-sm'
+                          : 'bg-white text-green-700 hover:bg-green-100 shadow-sm active:scale-95'
                           }`}
                       >
                         {num}
@@ -566,16 +566,16 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="bg-purple-50 p-4 rounded-xl border-2 border-purple-200">
-                  <h3 className="text-purple-700 font-bold mb-4">线索 2 的数字</h3>
-                  <div className="flex flex-col gap-2">
+                <div className="bg-purple-50 p-3 sm:p-4 rounded-xl border-2 border-purple-200">
+                  <h3 className="text-purple-700 font-bold mb-3 sm:mb-4 text-sm sm:text-base">线索 2 的数字</h3>
+                  <div className="flex flex-wrap sm:flex-col gap-2 justify-center">
                     {sequence8.map(num => (
                       <button
                         key={`s8-${num}`}
                         onClick={() => checkMatch(num)}
-                        className={`py-2 px-4 rounded-lg font-bold text-lg transition-all ${foundMatch === num
+                        className={`py-2 px-3 sm:px-4 rounded-lg font-bold text-sm sm:text-lg transition-all min-w-[48px] ${foundMatch === num
                           ? 'bg-yellow-400 text-white scale-110 shadow-xl ring-4 ring-yellow-200'
-                          : 'bg-white text-purple-700 hover:bg-purple-100 shadow-sm'
+                          : 'bg-white text-purple-700 hover:bg-purple-100 shadow-sm active:scale-95'
                           }`}
                       >
                         {num}
@@ -590,76 +590,76 @@ export default function App() {
 
         {/* Success Phase */}
         {phase === AppPhase.SUCCESS && (
-          <div className="max-w-4xl mx-auto text-center space-y-8 animate-bounce-slight pb-20">
-            <div className="inline-block p-8 bg-yellow-100 rounded-full border-8 border-yellow-300 shadow-2xl">
-              <Apple size="xl" className="w-32 h-32" />
+          <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 pb-20">
+            <div className="inline-block p-4 sm:p-8 bg-yellow-100 rounded-full border-4 sm:border-8 border-yellow-300 shadow-2xl">
+              <Apple size="xl" className="w-20 h-20 sm:w-32 sm:h-32" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-500">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-500">
               60 个苹果！
             </h1>
-            <div className="bg-white p-6 rounded-3xl shadow-xl max-w-lg mx-auto border-4 border-yellow-200">
-              <div className="flex items-center gap-4 text-left border-b border-gray-100 pb-4 mb-4">
-                <CheckCircle2 className="text-green-500 w-8 h-8 flex-shrink-0" />
+            <div className="bg-white p-4 sm:p-6 rounded-3xl shadow-xl max-w-lg mx-auto border-4 border-yellow-200">
+              <div className="flex items-center gap-3 sm:gap-4 text-left border-b border-gray-100 pb-3 sm:pb-4 mb-3 sm:mb-4">
+                <CheckCircle2 className="text-green-500 w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-500 text-sm font-bold">验算 1</p>
-                  <p className="text-xl font-bold text-gray-800">60个分7堆 = 8袋, 剩4个</p>
-                  <p className="text-green-600">符合“还多 4 个”！</p>
+                  <p className="text-gray-500 text-xs sm:text-sm font-bold">验算 1</p>
+                  <p className="text-base sm:text-xl font-bold text-gray-800">60个分7堆 = 8袋, 剩4个</p>
+                  <p className="text-green-600 text-sm sm:text-base">符合"还多 4 个"！</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 text-left">
-                <CheckCircle2 className="text-purple-500 w-8 h-8 flex-shrink-0" />
+              <div className="flex items-center gap-3 sm:gap-4 text-left">
+                <CheckCircle2 className="text-purple-500 w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-500 text-sm font-bold">验算 2</p>
-                  <p className="text-xl font-bold text-gray-800">60 + 4 = 64 (8个装8袋)</p>
-                  <p className="text-purple-600">符合“还差 4 个”！</p>
+                  <p className="text-gray-500 text-xs sm:text-sm font-bold">验算 2</p>
+                  <p className="text-base sm:text-xl font-bold text-gray-800">60 + 4 = 64 (8个装8袋)</p>
+                  <p className="text-purple-600 text-sm sm:text-base">符合"还差 4 个"！</p>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row justify-center gap-4 flex-wrap">
-              <button onClick={reset} className="bg-gray-200 text-gray-700 font-bold py-3 px-8 rounded-full shadow hover:bg-gray-300 transition">
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-2 sm:gap-4">
+              <button onClick={reset} className="bg-gray-200 text-gray-700 font-bold py-2 sm:py-3 px-4 sm:px-8 rounded-full shadow hover:bg-gray-300 transition text-sm sm:text-base active:scale-95 col-span-2 sm:col-span-1">
                 再玩一次
               </button>
               <button
                 onClick={() => setPhase(AppPhase.ADVANCED_EXPLAIN)}
-                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center gap-2"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 sm:py-3 px-3 sm:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-base active:scale-95"
               >
-                <Wand2 size={20} /> 学个“魔法侦探法”
+                <Wand2 size={16} /> <span className="hidden sm:inline">学个</span>"魔法侦探法"
               </button>
               <button
                 onClick={() => setPhase(AppPhase.SURPLUS_METHOD)}
-                className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center gap-2"
+                className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 sm:py-3 px-3 sm:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-base active:scale-95"
               >
-                <Utensils size={20} /> 学一招“填坑法”
+                <Utensils size={16} /> <span className="hidden sm:inline">学一招</span>"填坑法"
               </button>
               <button
                 onClick={() => setPhase(AppPhase.GENERAL_FROG)}
-                className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center gap-2"
+                className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 sm:py-3 px-3 sm:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-base active:scale-95"
               >
-                <Repeat size={20} /> 学一招“青蛙跳跳法”
+                <Repeat size={16} /> <span className="hidden sm:inline">学一招</span>"青蛙跳跳法"
               </button>
               <button
                 onClick={() => setPhase(AppPhase.VISUAL_CYCLE)}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center gap-2"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 sm:py-3 px-3 sm:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-base active:scale-95"
               >
-                <TrainFront size={20} /> 学一招“积木周期法”
+                <TrainFront size={16} /> <span className="hidden sm:inline">学一招</span>"积木周期法"
               </button>
               <button
                 onClick={() => setPhase(AppPhase.DIFF_SAME_METHOD)}
-                className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center gap-2"
+                className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 sm:py-3 px-3 sm:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-base active:scale-95"
               >
-                <MinusCircle size={20} /> 学一招“差同减差”
+                <MinusCircle size={16} /> <span className="hidden sm:inline">学一招</span>"差同减差"
               </button>
               <button
                 onClick={() => setPhase(AppPhase.CRT_METHOD)}
-                className="bg-indigo-800 hover:bg-indigo-900 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center gap-2"
+                className="bg-indigo-800 hover:bg-indigo-900 text-white font-bold py-2 sm:py-3 px-3 sm:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-base active:scale-95"
               >
-                <Sword size={20} /> 学一招“韩信点兵”
+                <Sword size={16} /> <span className="hidden sm:inline">学一招</span>"韩信点兵"
               </button>
               <button
                 onClick={() => setPhase(AppPhase.STACKING_METHOD)}
-                className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center gap-2"
+                className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 sm:py-3 px-3 sm:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-base active:scale-95"
               >
-                <Layers size={20} /> 学一招“层层堆叠法”
+                <Layers size={16} /> <span className="hidden sm:inline">学一招</span>"层层堆叠法"
               </button>
             </div>
           </div>
